@@ -1,23 +1,28 @@
 - name: Install mariadb server on Target
   hosts: db01
   tasks:
-    - name: Installing Python mysqld Package
-      yum:
-        name: python3-PyMySQL
-        state: present
     - name: Installing Maria DB Package
       yum:
         name: mariadb-server
         state: present
+
     - name: Starting DB Service
       service:
         name: mariadb
         state: started
         enabled: yes
+
     - name: Mysql Client Installing
       yum:
         name: mysql
         state: present
+
+    - name: Installing Python mysqld Package
+      yum:
+        name: MySQL-python
+        state: present
+
+
     - name: Create user with differente permissions to different databases
       mysql_user:
         login_user: 'root'
