@@ -22,11 +22,13 @@
         name: MySQL-python
         state: present
 
-
-    - name: Create user with differente permissions to different databases
+    - name: check root password is unset
       mysql_user:
+        login_host: 'localhost'
         login_user: 'root'
         login_password: ''
-        name: demo
-        state: present
-        priv: "mydb.*:INSERT,UPDATE/anotherdb.*:SELECT/yetanotherdb.*:ALL"
+        name: 'root'
+        password: 'Admin123'
+        name: 'admin'
+        password: 'admin123'
+        state: present   
