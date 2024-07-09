@@ -1,3 +1,4 @@
+```bash
 ---
 - name: Facth file from host-1 Ubuntu to Ansible Local
   hosts: web01
@@ -15,3 +16,4 @@
       copy:
        src: /home/sadmin/files/index.html
        dest: /home/sadmin/host2/
+```
